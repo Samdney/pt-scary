@@ -1,0 +1,8 @@
+mystuff/
+*.aux
+*.log
+*.out
+*.swp
+*.toc
+*.bbl
+*.blg
