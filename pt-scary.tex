@@ -130,23 +130,17 @@ This paper was written in the context of a job application as Pluggable Transpor
 \section{Introduction}
 \label{s:introduction}
 % --------------------------------------------------------------------------------
+In August 2018, The Intercept published a story about plans of Google for launching a censored version of its search engine in China, which will blacklist websites and search terms about human rights, democracy, religion, and peaceful protest \cite{Dragonfly}. This project, with the code-name \textit{Dragonfly}, started in spring prior year, is the newest step in the ongoing work of creating a censored environment of information in China.
 
+If we look back, the story of censorship in China started in 1998. The Communist Party feared that the China Democracy Party would create a powerful new network. The China Democracy Party was immediately banned, members arrested and imprisonment \cite{GreatFirewallWikiEn}. Finally, this resulted in the beginning of the \textit{Great Firewall (GFW)} project, a combination of legislative actions and technologies enforced by the People's Republic of China to regulate the Internet domestically. It blocks access to selected websites, internet tools, mobile apps and slows down cross-border internet traffic.
 
+Since the GFW blocks destinations and inspects the data being transmitted, ways for censorship circumvention need proxy nodes and encrypted data traffic. Typically, this is done these days by the help of foreign proxy servers, regional website mirrors, Tor, virtual private networks (VPNs) and secure shell (SSH).
 
+Over the years, more and more of this circumvention tools have been blocked due to deep packet inspections and the detailed analysis of its content. So now, many VPNs are no longer useable to circumvent the Great Firewall of China and also the access to the Tor anonymity network \cite{Tor}, with its public list of relays, is no longer possible. 
 
-% --------------------------------------------------------------------------------
-\section{Orientation}
-\label{s:orientation}
-% --------------------------------------------------------------------------------
+To solve the problem of relay blocking, Tor introduced so-called \textit{bridges} \cite{TorBridges} which are non-public relays, to help censored users reach the Tor network. Because of the ability of dynamically blocking bridges by looking for their TLS fingerprint \cite{foci12-winter} \cite{Ensafi2015AnalyzingTG}, packet fragmentation and Tor obfsproxy in combination with private bridges, were added \cite{foci12-winter}.
 
-
-% ---------------------------------------
-%\subsection{Definitions}
-%\label{ss:definitions}
-% ---------------------------------------
-
-
-
+Finally, this lead us to \textit{Pluggable Transports (PT)} \cite{TorPluggableTransports}, which help to bypass censorship attempts against Tor. PTs transform the Tor traffic between client and bridges, in such a way that it looks like innocent traffic instead of the actual Tor traffic. In this paper, we will talk about this PTs, their general construction constraints and an introducing of an sketch of a new PT called \textit{Scary}.
 % ---------------------------------------
 \subsection{Outline}
 \label{ss:outline}
@@ -172,6 +166,11 @@ This paper was written in the context of a job application as Pluggable Transpor
 
 
 
+% ---------------------------------------
+%\subsection{Definitions}
+%\label{ss:definitions}
+% ---------------------------------------
+
 
 
 
@@ -182,7 +181,7 @@ This paper was written in the context of a job application as Pluggable Transpor
 
 
 % ================================================================================
-%\nocite{*}
+%\nocite{*}		% TODO
 \bibliography{pt-scary}
 \bibliographystyle{ACM-Reference-Format}
 % ================================================================================
