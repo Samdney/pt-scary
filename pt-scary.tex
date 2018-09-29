@@ -157,11 +157,12 @@ Finally, this lead us to \textit{Pluggable Transports (PT)} \cite{TorPluggableTr
 % --------------------------------------------------------------------------------
 If we look at the previous story of censorship and blocking, this leads us to modern cryptographic protocols to provide communications security in computer networks. \textit{Transport Layer Security (TLS)} \cite{TLS_v1_2} is the one we have to look at here in the context of Tor traffic fingerprinting and its examination.
 % ---------------------------------------
-\subsection{A short history of TLS}
-\label{ss:ashorthistoryoftls}
+\subsection{A brief history of TLS}
+\label{ss:abriefhistoryoftls}
 % ---------------------------------------
+In 1999, the history of Transport Layer Security started when TLS v1.0 was introduced in RFC 2246 \cite{TLS_v1_0} as an upgrade of SSL v3.0. Seven years later, in 2006, TLS v1.1 was definied in RFC 4346 \cite{TLS_v1_1} as an update of TLS v1.0 with significant changes, like e.g. protection against cipher-block chaining (CBC) attacks. Two years later, in 2008 TLS 1.2 was published in RFC 5246 \cite{TLS_v1_2}, which its major differences, like e.g. replacing of MD5-SHA-1 with SHA-256 in the pseudorandom function (PRF) and in the finished message hash. Finally, just in August 2018, the newest version TLS 1.3 was definied in RFC 8446 \cite{TLS_v1_3}, with changes like e.g. separating key agreement and authentication algorithms from the cipher suites, removing support for MD5 and SHA-224 hash functions and much more.
 
-
+In this papper, we will always assume that we are talking about TLS 1.2, since it was the state-of-the-art, when the PT \textit{Scary}, which will be described in the following, was developed.
 % ---------------------------------------
 %\subsection{TLS v1.2}
 %\label{ss:tlsv1_2}
