@@ -7,6 +7,9 @@
 \usepackage{url}
 \usepackage{hyperref}
 
+\usepackage{listings}
+\usepackage[n, advantage, operators, sets, adversary, landau, probability, notions, logic, ff, mm, primitives, events, complexity, asymptotics, keys]{cryptocode}
+
 % Copyright
 \setcopyright{none}
 %\setcopyright{acmcopyright}
@@ -164,14 +167,47 @@ In 1999, the history of Transport Layer Security started when TLS v1.0 was intro
 
 In this papper, we will always assume that we are talking about TLS 1.2, since it was the state-of-the-art, when the PT \textit{Scary}, which will be described in the following, was developed.
 % ---------------------------------------
-%\subsection{TLS v1.2}
-%\label{ss:tlsv1_2}
+\subsection{The TLS Handshake Protocol}
+\label{ss:thetlshandshakeprotocol}
 % ---------------------------------------
+The TLS Handshake Protocol (\cite{TLS_v1_2} Sections 7.3 \& 7.4), which operates on the top of the TLS record layer, is the first interesting part for us. The TLS client and server agree on a protocol version, select cryptographic algorithms, optionally authenticate each other, and generate shared secrets.
 
-
-
-
-
+\begin{comment}
+\begin{figure}
+\caption{TLS full handshake}
+\label{fig:caption}
+\procedure{}{%
+\textbf{Client} \> \> \textbf{Server} \\
+\text{ClientHello} \> \sendmessageright*[1cm]{} \> \\
+\> \> \text{ServerHello} \\
+\> \> \text{Certificate} \\
+\> \> \text{ServerKeyExchange} \\
+\> \> \text{CertificateRequest} \\
+\> \sendmessageleft*[1cm]{} \> \text{ServerHelloDone} \\
+\text{Certificate} \> \> \\
+\text{ClientKeyExchange} \> \> \\
+\text{[ChangeCipherSpec]} \> \> \\
+\text{Finished} \> \sendmessageright*[1cm]{} \> \> \\
+\> \> \text{[ChangeCipherSpec]} \\
+\> \sendmessageleft*[1cm]{} \> \text{Finished} \\
+\text{Application Data} \> \longleftrightarrow \> \text{Application Data}
+}
+\end{figure}
+\end{comment}
+% ---------------------------------------
+%\subsubsection{TLS Client Hello}
+%\label{sss:tlsclienthello}
+% ---------------------------------------
+\begin{comment}
+% float
+\begin{lstlisting}[language=C, frame=tb, caption= A floating example]
+	int a = 4;
+\end{lstlisting}
+\end{comment}
+% ---------------------------------------
+%\subsubsection{TLS Server Hello}
+%\label{sss:tlsserverhello}
+% ---------------------------------------
 % ================================================================================
 %\section{State of the Art}
 %\label{s:stateoftheart}
