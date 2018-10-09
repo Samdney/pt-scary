@@ -167,7 +167,7 @@ If we look at the previous story of censorship and blocking, this leads us to mo
 % ---------------------------------------
 In 1999, the history of Transport Layer Security started when TLS v1.0 was introduced in RFC 2246 \cite{TLS_v1_0} as an upgrade of SSL v3.0. Seven years later, in 2006, TLS v1.1 was definied in RFC 4346 \cite{TLS_v1_1} as an update of TLS v1.0 with significant changes, like e.g. protection against cipher-block chaining (CBC) attacks. Two years later, in 2008 TLS 1.2 was published in RFC 5246 \cite{TLS_v1_2}, which its major differences, like e.g. replacing of MD5-SHA-1 with SHA-256 in the pseudorandom function (PRF) and in the finished message hash. Finally, just in August 2018, the newest version TLS 1.3 was definied in RFC 8446 \cite{TLS_v1_3}, with changes like e.g. separating key agreement and authentication algorithms from the cipher suites, removing support for MD5 and SHA-224 hash functions and much more.
 
-In this papper, we will always assume that we are talking about TLS 1.2, since it was the state-of-the-art, when the PT \textit{Scary}, which will be described in the following, was developed.
+In this papper, we will always assume that we are talking about TLS 1.2, since it was the state-of-the-art, when the PT \textit{Scary}, which will be described in the following, was developed, in 2015.
 % ---------------------------------------
 \subsection{The TLS Handshake Protocol}
 \label{ss:thetlshandshakeprotocol}
@@ -280,6 +280,11 @@ To bypass censorship attempts against Tor, \textit{Pluggable Transports (PT)} we
 In the section above, we already looked at the ordinary TLS Handshake protocol and its \textit{ClientHello} and \textit{ServerHello} message. The interesting parts from this, for us, are the cipher suite list, server name and TLS extensions, which are send by the client and responded by the server.
 
 Tor used a distinctive cipher suite list, until China started to block Tor \cite{foci12-winter} \cite{TorTicket4744}, in 2011. In answer to this, Tor changed its cipher suite list to be the same as Firefox's, but Tor had still a different TLS extension like Firefox because of e.g. other Elliptic curves sets \cite{TorWikiAChildsGardenOfPluggableTransports}. Finally, the server responds with its choosen parameters and a random server name, too.
+% ---------------------------------------
+\subsection{The obfs family}
+\label{ss:theobfsfamily}
+% ---------------------------------------
+The first pluggable transports originated from the obfs, "look-like-nothing", family and consists of \textit{obfs2} \cite{TorGitWebObfs2Specification}, \textit{obfs3} \cite{TorGitWebObfs3Specification} and \textit{obfs4} \cite{TorGitWebObfs4Specification}.
 % ================================================================================
 \section{Conclusions}
 \label{s:conclusions}
