@@ -1,3 +1,4 @@
 # pt-scary
 
-Paper: *Scary: A really scary Pluggable Transport*
+Paper: *Scary: A really scary Pluggable Transport*  
+
